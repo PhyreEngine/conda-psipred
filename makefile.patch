@@ -1,0 +1,26 @@
+--- a/src/Makefile	2018-02-01 14:36:53.781782600 +0000
++++ b/src/Makefile	2018-02-01 16:56:28.671711735 +0000
+@@ -6,7 +6,11 @@
+ #### CFLAGS	Flags to pass to C compiler.
+ 
+ INCDIR		= .
+-CC		= cc
++CC			?= cc
++
++DESTDIR		?= /usr/local
++DATADIR		?= $(DESTDIR)/share/psipred/data
++BINDIR		?= $(DESTDIR)/bin
+ 
+ CFLAGS		= -O
+ LIBS		= -lm
+@@ -14,7 +18,9 @@
+ all:		psipred psipass2 chkparse seq2mtx
+ 
+ install:
+-		/bin/cp psipred psipass2 chkparse seq2mtx ../bin
++		install -d '$(BINDIR)' '$(DATADIR)'
++		install -m755 psipred psipass2 chkparse seq2mtx '$(BINDIR)'
++		install -m644 ../data/* '$(DATADIR)'
+ 
+ clean:
+ 		/bin/rm -f psipred psipass2 chkparse seq2mtx
