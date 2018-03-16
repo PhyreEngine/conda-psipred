@@ -16,6 +16,7 @@ source:
   - makefile.patch
 
 build:
+  number: {{ environ.get("BUILD_NUMBER", 0) }}
   script: |
     make -C src
     make -C src DESTDIR="$PREFIX" install
