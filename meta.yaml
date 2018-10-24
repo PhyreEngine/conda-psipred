@@ -1,5 +1,5 @@
 {% set name = "psipred" %}
-{% set version = "4.01" %}
+{% set version = "4.02" %}
 # sha256 is the prefered checksum -- you can get it for a file with:
 #  `openssl sha256 <file name>`.
 # You may need the openssl package, available on conda-forge
@@ -11,7 +11,7 @@ package:
 
 source:
   url: http://bioinfadmin.cs.ucl.ac.uk/downloads/psipred/psipred.{{ version }}.tar.gz
-  sha256: c8633be72b138f019ea71f7b7acb7250bc1f7e2bf4c6b6c405f679f99574b0f5
+  sha256: b4009b6a5f8b76c6d60ac91c4a743512d844864cf015c492fb6d1dc0d092c467
   patches:
   - makefile.patch
 
